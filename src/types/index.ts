@@ -4,7 +4,7 @@ export interface ICard {
 	image: string;
 	title: string;
 	category: string;
-	price: number;
+	price: number | null;
 }
 
 export type mainCard = Pick<
@@ -20,7 +20,7 @@ export type modalCard = Pick<
 export type basketCard = Pick<ICard, 'title' | 'price' | 'id'>;
 
 export interface IBasketData {
-	setTotal(): void;
+	calculateTotal(): number;
 	getTotal(): number;
 	getGoods(): number;
 	addItem(card: ICard): void;

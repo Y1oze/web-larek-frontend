@@ -71,4 +71,8 @@ export class BasketData implements IBasketData {
 		this.cards.length = 0;
 		this.events.emit('basket:changed');
 	}
+
+	calculateTotal(): number {
+		return this.cards.reduce((total, item) => total + (item.price || 0), 0);
+	}
 }
